@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import fi.jyu.mit.fxgui.ComboBoxChooser?>
+<?import fi.jyu.mit.fxgui.ListChooser?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane prefHeight="451.0" prefWidth="760.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fxalbumirekisteri.AlbumirekisteriGUIController">
+   <top>
+      <MenuBar prefWidth="776.0" BorderPane.alignment="CENTER">
+        <menus>
+          <Menu mnemonicParsing="false" text="Tiedosto">
+            <items>
+              <MenuItem mnemonicParsing="false" onAction="#handleTallenna" text="Tallenna" />
+                  <MenuItem mnemonicParsing="false" onAction="#handleAvaa" text="Avaa..." />
+                  <MenuItem mnemonicParsing="false" onAction="#handleLopeta" text="Lopeta" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Muokkaa">
+            <items>
+              <MenuItem mnemonicParsing="false" onAction="#handleUusiAlbumi" text="Lisää uusi albumi" />
+                  <MenuItem mnemonicParsing="false" onAction="#handlePoistaAlbumi" text="Poista albumi..." />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Apua">
+            <items>
+              <MenuItem mnemonicParsing="false" onAction="#handleApua" text="Apua" />
+                  <MenuItem mnemonicParsing="false" onAction="#handleTietoja" text="Tietoja..." />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+   </top>
+   <left>
+      <BorderPane prefHeight="200.0" prefWidth="220.0" BorderPane.alignment="CENTER">
+         <center>
+            <ListChooser fx:id="chooserAlbumit" prefWidth="200.0" rivit="Supernatural&#10;Albumi G&#10;Alebumi X" BorderPane.alignment="CENTER">
+               <BorderPane.margin>
+                  <Insets bottom="10.0" left="10.0" right="10.0" />
+               </BorderPane.margin>
+            </ListChooser>
+         </center>
+         <top>
+            <VBox alignment="TOP_CENTER" prefWidth="100.0" BorderPane.alignment="CENTER">
+               <children>
+                  <Label text="Haku">
+                     <font>
+                        <Font size="13.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="textHakukentta" onKeyTyped="#handleHaku">
+                     <VBox.margin>
+                        <Insets left="10.0" right="10.0" />
+                     </VBox.margin>
+                  </TextField>
+                  <ComboBoxChooser fx:id="hakuehto" rivit="Nimi&#10;Yhtye/Artisti&#10;Genre&#10;Julkaisuvuosi">
+                     <VBox.margin>
+                        <Insets top="5.0" />
+                     </VBox.margin>
+                  </ComboBoxChooser>
+                  <Label text="Albumit">
+                     <VBox.margin>
+                        <Insets bottom="5.0" left="10.0" right="10.0" top="5.0" />
+                     </VBox.margin>
+                     <font>
+                        <Font size="13.0" />
+                     </font>
+                  </Label>
+               </children>
+            </VBox>
+         </top>
+      </BorderPane>
+   </left>
+   <bottom>
+      <HBox prefWidth="200.0" BorderPane.alignment="CENTER">
+         <children>
+            <Button mnemonicParsing="false" onAction="#handleUusiAlbumi" text="Uusi albumi">
+               <HBox.margin>
+                  <Insets bottom="2.0" left="2.0" right="2.0" />
+               </HBox.margin>
+            </Button>
+            <Button mnemonicParsing="false" onAction="#handleTallenna" text="Tallenna" />
+         </children>
+         <BorderPane.margin>
+            <Insets />
+         </BorderPane.margin>
+      </HBox>
+   </bottom>
+   <right>
+      <BorderPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <top>
+            <ImageView fitHeight="221.0" fitWidth="216.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER">
+               <image>
+                  <Image url="@../../kuvat/Supernatural.jpg" />
+               </image>
+            </ImageView>
+         </top>
+         <bottom>
+            <ImageView fitHeight="183.0" fitWidth="217.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER">
+               <image>
+                  <Image url="@../../kuvat/SantanaBackcover.jpg" />
+               </image>
+               <BorderPane.margin>
+                  <Insets top="2.0" />
+               </BorderPane.margin>
+            </ImageView>
+         </bottom>
+      </BorderPane>
+   </right>
+   <center>
+      <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+         <children>
+            <ScrollPane fx:id="panelAlbumi" fitToWidth="true" prefHeight="176.0" prefWidth="296.0">
+               <content>
+                  <GridPane hgap="10.0" prefWidth="281.0">
+                    <columnConstraints>
+                      <ColumnConstraints fillWidth="false" halignment="RIGHT" hgrow="SOMETIMES" maxWidth="89.0" minWidth="10.0" prefWidth="87.0" />
+                      <ColumnConstraints hgrow="ALWAYS" maxWidth="140.0" minWidth="79.0" prefWidth="81.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                     <padding>
+                        <Insets left="10.0" right="10.0" top="10.0" />
+                     </padding>
+                     <children>
+                        <Label text="Nimi" />
+                        <Label text="Yhtye/Artisti" GridPane.rowIndex="1" />
+                        <Label text="Julkaisuvuosi" GridPane.rowIndex="3" />
+                        <Label layoutX="71.0" layoutY="24.0" text="Genre" GridPane.rowIndex="2" />
+                        <TextField fx:id="textNimi" onKeyTyped="#handleMuutos" text="Supernatural" GridPane.columnIndex="1" GridPane.hgrow="ALWAYS" />
+                        <TextField fx:id="textYhtye" onKeyTyped="#handleMuutos" text="Santana" GridPane.columnIndex="1" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" />
+                        <TextField fx:id="textGenre" onKeyTyped="#handleMuutos" text="Latin rock" GridPane.columnIndex="1" GridPane.hgrow="ALWAYS" GridPane.rowIndex="2" />
+                        <TextField fx:id="textJulkaisuvuosi" layoutX="107.0" layoutY="45.0" onKeyTyped="#handleMuutos" text="1999" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="94.0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                     </children>
+                  </GridPane>
+               </content>
+            </ScrollPane>
+            <HBox prefHeight="100.0" prefWidth="200.0">
+               <children>
+                  <Label alignment="CENTER" prefHeight="38.0" prefWidth="84.0" text="Lisätietoja/&#10;kommentteja" />
+                  <TextArea fx:id="areaLisatietoja" onKeyTyped="#handleMuutos" prefHeight="100.0" prefWidth="185.0" text="plaaplaa" />
+               </children>
+               <VBox.margin>
+                  <Insets bottom="10.0" top="10.0" />
+               </VBox.margin>
+            </HBox>
+         </children>
+      </VBox>
+   </center>
+</BorderPane>
