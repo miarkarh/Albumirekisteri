@@ -2,6 +2,8 @@
 
 Albumirekisteri on Java-sovellus, jonka tein opinnoissa. Sen avulla käyttäjä voi hallita musiikkialbumeita ja ylläpitää omaa albumirekisteriä.
 
+Projekti on arkistoitu eikä sitä enää ylläpidetä.
+
 ## Kuvaus
 - Sovelluksessa voi **luoda käyttäjätilin** ja kirjautua sisään.  
 - Käyttäjä voi **lisätä albumeita**, tarkastella niitä ja ylläpitää omaa **muistilistaa / rekisteriä**.
