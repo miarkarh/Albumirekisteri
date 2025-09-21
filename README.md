@@ -12,7 +12,7 @@ Albumirekisteri on Java-sovellus, jonka tein opinnoissa. Sen avulla käyttäjä 
 - JavaFX-kirjasto 
 
 ## Asennus ja ajaminen
-> Suoritettava `.jar`-tiedoston ajaminen onnistuu komennolla (JavaFX-kirjastopolut määritelty):
+Suoritettava `.jar`-tiedoston ajaminen onnistuu komennolla (JavaFX-kirjastopolut määritelty):
 > ```bash
 > java --module-path /polku/javafx-sdk/lib --add-modules javafx.controls,javafx.fxml -jar Albumirekisteri.jar
 > ```
